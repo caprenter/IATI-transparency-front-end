@@ -6,7 +6,10 @@ $today = getdate();
 
 if (isset($_GET["month"])) {
     $month = filter_var($_GET["month"], FILTER_SANITIZE_NUMBER_INT);
+    //Try to do some checking that the requested month will have data associated with it
     $year_now = $today["year"];
+    //IN the current year we haven't yet reached e.g. December, so set max month allowed to this month.
+    //We will come backj and deal with years later..
     if ($year_now == 2013) {
       $max = $today["mon"];
     } else {
@@ -22,6 +25,10 @@ if (isset($_GET["month"])) {
 } 
  
 if (isset($month)) {
+  if ($year_now == 2013 && $month < 4) {
+    $month = 05; // not very elegant - but we don't have pre April data, and we currently know we have data for May in the database
+  }
+    
   if ($month < 10) {
     $month = "0" . $month;
   }
@@ -215,28 +222,11 @@ try {
      
 
 
+
     <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="#">Project name</a>
-          <div class="nav-collapse collapse">
-            <p class="navbar-text pull-right">
-              Logged in as <a href="#" class="navbar-link">Username</a>
-            </p>
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
+      <?php include("theme/navbar.php"); ?>
     </div>
+
 
     <div class="container-fluid">
       <div class="row-fluid">
@@ -244,7 +234,28 @@ try {
         <div class="span12">
           <div class="hero-unit">
             <?php    
-            echo "<h2>". date("F, Y",strtotime($date ."-01")) ."</h2>";       
+            echo "<h2>". date("F, Y",strtotime($date ."-01")) ."</h2>";   
+            //Select other months
+            echo '<form method="get" action="index.php" id="month">';
+          echo '<select name="month" onchange="this.form.submit();">';
+          for ($j=4; $j <= $today["mon"]; $j++) {
+         //foreach ($lists as $id=>$value) {
+            if ($value['name'] == "New List (click to edit title)") {
+              $value['name'] = "New List";
+            }
+            echo '<option ';
+            if ($value['is_public'] == 1) {
+              echo 'class="public" ';
+            }
+            echo 'value="' . $j . '" ' . ($j == $month ? "selected='selected'":"") . '>' . date("F",strtotime("2013-" . $j));
+            echo '</option>';
+          }
+          echo '</select>';
+          echo '<input type="submit" value="Select List" style="display:none">';
+          echo '</form>';
+
+            //$today["mon"];
+                
             echo $html;
             ?>
           </div>
