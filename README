@@ -1,0 +1,21 @@
+IATI Transparency Front End is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+See Copying/Licence.txt for details
+
+===Install===
+Plce files on your webserver. Requires PHP.
+
+Create an empty MySQL database using
+iati-stats.sql
+
+==To get data==
+I need to add import scripts and links to CSV files to import from. 
+In the meantime I can supply data if you ask me. See Copying/Licence.txt for details.
+
+===Database notes===
+I think the tests table will have been built from Bill's spreadsheet
+I think the providers table would have been a csv import but can't find an original csv!
+Hierarchy is 0 for all at the moment

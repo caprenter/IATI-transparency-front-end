@@ -1,0 +1,33 @@
+===IATI Transparency Front End===
+
+Copyright 2013 caprenter <caprenter@gmail.com>
+     
+This file is part of IATI Transparency Front End.
+     
+IATI Transparency Front End is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+    
+IATI Transparency Front End is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+    
+You should have received a copy of the GNU General Public License
+along with IATI Transparency Front End.  If not, see <http://www.gnu.org/licenses/>.
+
+IATI Transparency Front End relies on other free software products. See the README file 
+for more details.
+
+Contact Information
+caprenter@gmail.com
+
+===Twitter Bootstrap===
+http://twitter.github.io/bootstrap/
+Code licensed under Apache License v2.0, documentation under CC BY 3.0.
+Glyphicons Free licensed under CC BY 3.0.
+
+
+
+
