@@ -36,6 +36,7 @@ if (isset($month)) {
   $date = $year_now . "-" . $month;
 } else {
   $date = "2013-05";
+  $month = "05";
 }
 
 $html ='<table class="table-fixed-header" border ="1">';
